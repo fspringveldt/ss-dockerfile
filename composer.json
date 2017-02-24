@@ -1,0 +1,12 @@
+{
+  "name": "fspringveldt/ss-dockerfile",
+  "description": "A very simple docker image definition",
+  "type": "silverstripe-module",
+  "authors": [
+    {
+      "name": "Franco Springveldt",
+      "email": "fspringveldt@gmail.com"
+    }
+  ],
+  "version":"1.0.0"
+  }
