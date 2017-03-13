@@ -23,7 +23,7 @@ services:
       MYSQL_PASSWORD: password
       VIRTUAL_HOST: 'db.local'
   ss:
-    build: ./php-build/
+    build: ./ss-dockerfile/
     container_name: ss-site
     links:
       - db
