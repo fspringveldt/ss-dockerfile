@@ -42,7 +42,7 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./nginx-proxy.conf:/etc/nginx/conf.d/nginx-proxy.conf      
+      - ./ss-dockerfile/nginx-proxy.conf:/etc/nginx/conf.d/nginx-proxy.conf      
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
