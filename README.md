@@ -1,5 +1,5 @@
 # ss-dockerfile
-My local Dockerfile for SilverStripe for use with Docker-Compose :)
+My local Dockerfile for SilverStripe for use with Docker-Compose, complete with XDebug support :) 
 
 ## Setup via composer
 `composer require fspringveldt/ss-dockerfile dev-master --dev`
