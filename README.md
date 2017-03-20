@@ -1,10 +1,10 @@
 # ss-dockerfile
 My local Dockerfile for SilverStripe for use with Docker-Compose :)
 
-##Setup via composer
+## Setup via composer
 `composer require fspringveldt/ss-dockerfile dev-master --dev`
 
-##Docker-compose setup
+## Docker-compose setup
 * Edit your local hosts file to point db.local, dev.local and pma.local to docker vm ip address
 * Create a file named .docker-compose.yml in your project's root directory and copy the below into it:
 ```yml
