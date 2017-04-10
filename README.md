@@ -18,13 +18,13 @@ services:
       - db-data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: ss-site
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-      VIRTUAL_HOST: 'db.local'
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      VIRTUAL_HOST: ${DB_VIRTUAL_HOST}
   ss:
-    build: https://github.com/fspringveldt/ss-dockerfile.git#cwp
+    build: https://github.com/fspringveldt/ss-dockerfile.git#master
     container_name: ss-site
     links:
       - db
@@ -34,7 +34,16 @@ services:
     volumes:
       - ./:/var/www/htdocs
     environment:
-      - VIRTUAL_HOST=dev.local
+      - VIRTUAL_HOST=${SS_VIRTUAL_HOST}
+      - DATABASE_SERVER=db
+      - XDEBUG_CONFIG=remote_host=${XDEBUG_REMOTE_HOST}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - SS_DEFAULT_ADMIN_USERNAME=${SS_ADMIN_USER}
+      - SS_DEFAULT_ADMIN_PASSWORD=${SS_ADMIN_PASSWORD}
+      - SS_ENVIRONMENT=${SS_ENVIRONMENT}
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
@@ -55,7 +64,7 @@ services:
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: password
-      VIRTUAL_HOST: 'pma.local'
+      VIRTUAL_HOST: ${PMA_VIRTUAL_HOST}
 volumes:
   db-data:
 ```
