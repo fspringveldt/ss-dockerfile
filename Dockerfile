@@ -5,7 +5,8 @@ MAINTAINER Franco Springveldt "franco@fswebworks.co.za"
 
 RUN apt-get -qq update
 
-RUN apt-get -qqy install sudo wget lynx telnet nano make locales bzip2
+RUN apt-get -qqy install sudo wget lynx telnet libmcrypt-dev nano make locales bzip2 git \
+    && docker-php-ext-install iconv mcrypt
 
 RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
 	echo "en_US.UTF-8 UTF-8\n" > /etc/locale.gen && \
@@ -32,7 +33,11 @@ RUN wget https://phar.phpunit.de/phpunit-3.7.37.phar && \
 	pear channel-discover pear.phing.info && \
 	pear install phing/phing
 
+
+
 ## Install mcrypt
 #RUN add-apt-repository universe
-#RUN apt-get install -y php5-mcrypt
-#RUN docker-php-ext-install mcrypt
+RUN apt-get install -y php5-mcrypt
+RUN docker-php-ext-install mcrypt
+
+RUN php5enmod mcrypt
