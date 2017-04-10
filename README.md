@@ -24,15 +24,15 @@ services:
       MYSQL_PASSWORD: password
       VIRTUAL_HOST: 'db.local'
   ss:
-    build: ./ss-dockerfile/
+    build: https://github.com/fspringveldt/ss-dockerfile.git#cwp
     container_name: ss-site
     links:
       - db
     depends_on:
       - db
-    working_dir: /var/www/html
+    working_dir: /var/www/htdocs
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/htdocs
     environment:
       - VIRTUAL_HOST=dev.local
   nginx-proxy:
