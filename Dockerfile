@@ -33,6 +33,6 @@ RUN wget https://phar.phpunit.de/phpunit-3.7.37.phar && \
 	pear install phing/phing
 
 ## Install mcrypt
-RUN add-apt-repository universe
+#RUN add-apt-repository universe
 RUN apt-get install -y php5-mcrypt
 RUN docker-php-ext-install mcrypt
