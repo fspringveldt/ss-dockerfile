@@ -5,7 +5,7 @@ MAINTAINER Franco Springveldt "franco@fswebworks.co.za"
 
 RUN apt-get -qq update
 
-RUN apt-get -qqy install sudo wget lynx telnet libmcrypt-dev nano make locales bzip2 git \
+RUN apt-get -qqy install sudo wget lynx telnet libmcrypt-dev nano make locales bzip2 git zip unzip \
     && docker-php-ext-install iconv mcrypt
 
 RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
