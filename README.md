@@ -3,7 +3,7 @@ My local Dockerfile for SilverStripe for use with Docker-Compose, complete with 
 
 ## Setup
 1. Install docker by [following this guide.](https://docs.docker.com/engine/getstarted/step_one/) 
-2. Create a file named .env as below in your project's root directory, adding values after the equals signs
+2. Create a file named **.env** as below in your project's root directory, adding values after the equals signs
 ```txt
 MYSQL_ROOT_PASSWORD=
 MYSQL_DATABASE=
@@ -19,7 +19,7 @@ SS_VIRTUAL_HOST=
 ```
 
 3. Edit your local hosts file to point values given for PMA_VIRTUAL_HOST, DB_VIRTUAL_HOST and SS_VIRTUAL_HOST (defined in .env file above) to docker vm ip address
-4. Create a file named docker-compose.yml in your project's root directory and copy the below into it:
+4. Create a file named **docker-compose.yml** in your project's root directory and copy the below into it:
 ```yml
 version: "2"
 
@@ -88,7 +88,7 @@ At this stage, if all goes well, you can shell to your ss container `docker exec
 ##
 
 ## Additional resources:
-1. _ss_environment.php syntax:
+1. Below is an exampler of a SilverStripe environment file **(_ss_environment.php)** syntax:
 ```php
 <?php
     /**
