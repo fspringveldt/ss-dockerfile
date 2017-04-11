@@ -2,7 +2,7 @@
 My local Dockerfile for SilverStripe for use with Docker-Compose, complete with XDebug support :) 
 
 ## Setup
-1. Install docker [Follow this guide](https://docs.docker.com/engine/getstarted/step_one/) 
+1. Install docker by [following this guide.](https://docs.docker.com/engine/getstarted/step_one/) 
 2. Create a file named .env as below in your project's root directory, adding values after the equals signs
 ```txt
 MYSQL_ROOT_PASSWORD=
@@ -81,7 +81,7 @@ services:
 volumes:
   db-data:
 ```
-5. Run `docker-compose build` and then `docker-compose run -d`. That's it.
+5. Run `docker-compose build` and then start your containers with `docker-compose up -d`. Use `docker-compose down` to stop them, and `docker-compose down -v` to remove mounted volumes.
 
 At this stage, if all goes well, you can shell to your ss container `docker exec -ti ss-site /bin/bash`, from where you can run your  `composer create-project ...` commands.
 
