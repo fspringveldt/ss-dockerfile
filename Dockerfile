@@ -38,6 +38,7 @@ RUN wget https://phar.phpunit.de/phpunit-3.7.37.phar && \
 ## Install mcrypt
 #RUN add-apt-repository universe
 RUN apt-get install -y php5-mcrypt php5-intl
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++
 RUN docker-php-ext-install mcrypt
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
