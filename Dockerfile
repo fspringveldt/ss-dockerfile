@@ -17,7 +17,7 @@ RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
 #	&& echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
 #	&& echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
 
-RUN yes | docker-php-ext-install pdo pdo_mysql mysqli
+RUN yes | docker-php-ext-install pdo pdo_mysql mysqli tidy
 
 # SilverStripe Apache Configuration
 RUN a2enmod rewrite && \
