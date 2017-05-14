@@ -6,7 +6,7 @@ MAINTAINER Franco Springveldt "franco@fswebworks.co.za"
 RUN apt-get -qq update
 
 RUN apt-get -qqy install sudo wget lynx telnet libmcrypt-dev nano make locales bzip2 git zip unzip \
-    && docker-php-ext-install iconv mcrypt libtidy libtidy-devel
+    && docker-php-ext-install iconv mcrypt
 
 RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
 	echo "en_US.UTF-8 UTF-8\n" > /etc/locale.gen && \
@@ -17,7 +17,7 @@ RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
 #	&& echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
 #	&& echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
 
-RUN yes | docker-php-ext-install pdo pdo_mysql mysqli tidy
+RUN yes | docker-php-ext-install pdo pdo_mysql mysqli
 
 # SilverStripe Apache Configuration
 RUN a2enmod rewrite && \
