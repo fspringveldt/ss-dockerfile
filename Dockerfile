@@ -6,7 +6,7 @@ MAINTAINER Franco Springveldt "franco@fswebworks.co.za"
 RUN apt-get -qq update
 
 RUN apt-get -qqy install sudo wget lynx telnet libmcrypt-dev nano make locales bzip2 git zip unzip \
-    && docker-php-ext-install iconv mcrypt
+    && docker-php-ext-install iconv mcrypt libtidy libtidy-devel
 
 RUN echo "LANG=en_US.UTF-8\n" > /etc/default/locale && \
 	echo "en_US.UTF-8 UTF-8\n" > /etc/locale.gen && \
