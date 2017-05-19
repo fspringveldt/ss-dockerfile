@@ -23,6 +23,13 @@ RUN yes | docker-php-ext-install pdo pdo_mysql mysqli
 RUN a2enmod rewrite && \
 	echo "date.timezone = Europe/Berlin" > /etc/apache2/conf-enabled/timezone.ini && \
 	echo "date.timezone = Europe/Berlin" > /usr/local/etc/php/conf.d/timezone.ini
+RUN echo "file_uploads = On" > /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "memory_limit = 1024M" > /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "upload_max_filesize = 64M" > /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "post_max_size = 64M" > /usr/local/etc/php/conf.d/uploads.ini
+    echo "max_execution_time = 600" > /usr/local/etc/php/conf.d/uploads.ini
+
+
 
 ##  - Phpunit, Composer, Phing
 RUN wget https://phar.phpunit.de/phpunit-3.7.37.phar && \
