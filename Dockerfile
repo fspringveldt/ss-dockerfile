@@ -26,7 +26,7 @@ RUN a2enmod rewrite && \
 RUN echo "file_uploads = On" > /usr/local/etc/php/conf.d/uploads.ini && \
     echo "memory_limit = 1024M" > /usr/local/etc/php/conf.d/uploads.ini && \
     echo "upload_max_filesize = 64M" > /usr/local/etc/php/conf.d/uploads.ini && \
-    echo "post_max_size = 64M" > /usr/local/etc/php/conf.d/uploads.ini
+    echo "post_max_size = 64M" > /usr/local/etc/php/conf.d/uploads.ini && \
     echo "max_execution_time = 600" > /usr/local/etc/php/conf.d/uploads.ini
 
 
